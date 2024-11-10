@@ -110,17 +110,10 @@
         "border_opacity": 100,
         "shadow": ""
       }
-    },
-    "custom_navigation_rVcKjW": {
-      "type": "custom-navigation",
-      "settings": {
-        "menu": "wip-menu"
-      }
     }
   },
   "order": [
     "announcement_bar_Ge9W3V",
-    "navbar",
-    "custom_navigation_rVcKjW"
+    "navbar"
   ]
 }
