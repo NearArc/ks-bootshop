@@ -26,6 +26,7 @@
       "block_order": [
         "desktop_Ygc9TN"
       ],
+      "disabled": true,
       "settings": {
         "bg_color": "bg-body",
         "bg_opacity": 100,
