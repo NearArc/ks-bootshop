@@ -25,11 +25,18 @@
           "settings": {
             "announcement": "Free Shipping For All Orders Over $100"
           }
+        },
+        "slide_YHNUVL": {
+          "type": "slide",
+          "settings": {
+            "announcement": "Announce something important here"
+          }
         }
       },
       "block_order": [
         "slide_j46kwk",
-        "slide_mwF4Tk"
+        "slide_mwF4Tk",
+        "slide_YHNUVL"
       ],
       "settings": {
         "bg_color": "bg-primary",

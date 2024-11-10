@@ -9,6 +9,35 @@
  */
 {
   "sections": {
+    "navbar_q3bf88": {
+      "type": "navbar",
+      "blocks": {
+        "desktop_Ygc9TN": {
+          "type": "desktop",
+          "settings": {
+            "container_max_width": "",
+            "logo_height": 40,
+            "main_menu": "wip-menu",
+            "pt": 3,
+            "pb": 3
+          }
+        }
+      },
+      "block_order": [
+        "desktop_Ygc9TN"
+      ],
+      "settings": {
+        "bg_color": "bg-body",
+        "bg_opacity": 100,
+        "bg_gradient": "",
+        "text_color": "text-body",
+        "border_top_width": 0,
+        "border_bottom_width": 0,
+        "border_color": "border-body",
+        "border_opacity": 100,
+        "shadow": "shadow-sm"
+      }
+    },
     "hero_carousel_CmDneU": {
       "type": "hero-carousel",
       "blocks": {
@@ -680,6 +709,7 @@
     }
   },
   "order": [
+    "navbar_q3bf88",
     "hero_carousel_CmDneU",
     "featured_products_nXJKQn",
     "richtext_4miPYL",
