@@ -125,6 +125,26 @@
         "type": "shopify://apps/ga-sticky-add-to-cart-bar/blocks/app-embeded/b42f05e3-9661-481c-86b7-0e22e7894bf1",
         "disabled": false,
         "settings": {}
+      },
+      "7555218208816688692": {
+        "type": "shopify://apps/tydal-popups-email-pop-ups/blocks/app-embed/48a5a3ef-b6ff-431f-842f-6f17862c4a63",
+        "disabled": false,
+        "settings": {}
+      },
+      "2187360915322861293": {
+        "type": "shopify://apps/uploadly-file-upload/blocks/app-embed/d91e9a53-de3d-49df-b7a1-ac8a15b213e5",
+        "disabled": false,
+        "settings": {}
+      },
+      "643381569867433295": {
+        "type": "shopify://apps/infinite-fb-tiktok-pixels/blocks/app-embed/66ae554b-dfd3-49ce-89e3-201f6854e21d",
+        "disabled": false,
+        "settings": {}
+      },
+      "589105776624167139": {
+        "type": "shopify://apps/delta-pixels-2-0/blocks/app-embed/5d048f0f-a8aa-4686-a0d4-d3aa209395a8",
+        "disabled": false,
+        "settings": {}
       }
     }
   }
