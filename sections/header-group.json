@@ -14,6 +14,12 @@
     "announcement_bar_Ge9W3V": {
       "type": "announcement-bar",
       "blocks": {
+        "slide_mXC63P": {
+          "type": "slide",
+          "settings": {
+            "announcement": "Announce something important here"
+          }
+        },
         "slide_j46kwk": {
           "type": "slide",
           "settings": {
@@ -34,6 +40,7 @@
         }
       },
       "block_order": [
+        "slide_mXC63P",
         "slide_j46kwk",
         "slide_mwF4Tk",
         "slide_YHNUVL"
@@ -103,10 +110,17 @@
         "border_opacity": 100,
         "shadow": ""
       }
+    },
+    "custom_navigation_rVcKjW": {
+      "type": "custom-navigation",
+      "settings": {
+        "menu": "wip-menu"
+      }
     }
   },
   "order": [
     "announcement_bar_Ge9W3V",
-    "navbar"
+    "navbar",
+    "custom_navigation_rVcKjW"
   ]
 }
