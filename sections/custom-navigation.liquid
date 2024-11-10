@@ -1,6 +1,56 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+{% comment %}
+  Custom Navigation Bar Section
+{% endcomment %}
+
+<nav class="custom-navigation">
+  <ul>
+    {% for link in linklists[section.settings.menu].links %}
+      <li>
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
+
+<style>
+  /* Desktop-only styles */
+  @media screen and (max-width: 767px) {
+    .custom-navigation {
+      display: none;
+    }
   }
+  .custom-navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  .custom-navigation li {
+    margin-right: 20px;
+  }
+  .custom-navigation a {
+    text-decoration: none;
+    color: #000;
+  }
+  .custom-navigation a:hover {
+    color: #555;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Navigation",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Select Menu"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Navigation"
+    }
+  ]
+}
 {% endschema %}
