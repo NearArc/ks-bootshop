@@ -28,6 +28,10 @@
   padding-bottom: 0.25rem;
 }
 
+.custom-navigation a {
+  color: {{ section.settings.link_color }};
+}
+
 .subtitle {
   text-transform: uppercase;
   letter-spacing: .1rem;
