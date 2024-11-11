@@ -708,6 +708,41 @@ hr {
   border-radius: var(--bs-border-radius);
 }
 
+/* Main dropdown menu styling */
+.header__submenu {
+  position: absolute;
+  display: none; /* Hidden by default */
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  min-width: 200px;
+}
+
+/* Show dropdown menu on click */
+.header__menu-item[open] .header__submenu {
+  display: block;
+}
+
+/* Side pop-out submenu */
+.side-submenu {
+  position: absolute;
+  display: none; /* Hidden by default */
+  top: 0;
+  left: 100%;
+  background-color: #f8f8f8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  min-width: 180px;
+}
+
+/* Show side submenu on hover of the parent submenu item */
+.submenu-item:hover .side-submenu {
+  display: block;
+}
+
+
    /* Mega Menu Styling */
 .mega-menu {
   display: flex;
