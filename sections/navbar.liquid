@@ -97,9 +97,36 @@
             <div class="col-4">
               {% render 'navbar-logo', block: block %}
             </div>
-            <div class="col-10">
-              {% render 'navbar-desktop-menu', block: block %}
-            </div>
+            <div class="container">
+    <ul class="main-menu">
+        {% for link in linklists.main-menu.links %}
+            <li class="menu-item has-dropdown">
+                <a href="{{ link.url }}" class="menu-link">{{ link.title }}</a>
+                
+                {% if link.links.size > 0 %}
+                <ul class="dropdown">
+                    {% for sublink in link.links %}
+                        <li class="submenu-item has-submenu">
+                            <a href="{{ sublink.url }}" class="submenu-link">{{ sublink.title }}</a>
+
+                            {% if sublink.links.size > 0 %}
+                            <ul class="submenu">
+                                {% for item in sublink.links %}
+                                    <li class="submenu-item">
+                                        <a href="{{ item.url }}" class="submenu-link">{{ item.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
             <div class="col-4">
               {% render 'navbar-desktop-icons', block: block %}
             </div>
