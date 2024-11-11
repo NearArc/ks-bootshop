@@ -886,68 +886,62 @@ a, h1, h2, h3, h4, p{
 {
    "name": "Custom Header",
    "max_blocks": 5,
-   "settings":[
-        {
-            "type": "select",
-            "id": "menu_theme",
-            "label": "Menu Theme",
-            "options": [
-                {
-                    "value": "lightblack",
-                    "label": "Light Black"
-                },
-                {
-                    "value": "lightred",
-                    "label": "Light Red"
-                },
-                {
-                    "value": "lightgreen",
-                    "label": "Light Green"
-                },
-                {
-                    "value": "lightyellow",
-                    "label": "Light Yellow"
-                },
-                {
-                    "value": "lightwhite",
-                    "label": "Light White"
-                }
-            ],
-            "default": "lightblack"
-        }
-  
+   "settings": [
+       {
+           "type": "select",
+           "id": "menu_theme",
+           "label": "Menu Theme",
+           "options": [
+               { "value": "lightblack", "label": "Light Black" },
+               { "value": "lightred", "label": "Light Red" },
+               { "value": "lightgreen", "label": "Light Green" },
+               { "value": "lightyellow", "label": "Light Yellow" },
+               { "value": "lightwhite", "label": "Light White" }
+           ],
+           "default": "lightblack"
+       },
+       {
+           "type": "select",
+           "id": "menu_type",
+           "label": "Menu Type",
+           "options": [
+               { "value": "standard", "label": "Standard Menu" },
+               { "value": "mega", "label": "Mega Menu" }
+           ],
+           "default": "standard"
+       }
    ],
    "blocks": [
-        {
-            "type": "list-menu",
-            "name": "List Mega Menu",
-            "settings": [
-                {
-                    "type": "header",
-                    "content": "Menu List Block"
-                },
-                {
-                    "type": "text",
-                    "id": "list_menu_name",
-                    "default": "Menu Name",
-                    "label": "Menu Name"
-                },
-                {
-                    "type": "text",
-                    "id": "list_menu_heading",
-                    "default": "Menu Heading",
-                    "label": "Menu Heading"
-                },
-                {
-                    "type": "text",
-                    "id": "menu_title1",
-                    "default": "Menu 1",
-                    "label": "Menu Title"
-                },
-                {
-                    "type": "link_list",
-                    "id": "menu_link1",
-                    "label": "Nav Menu"
+       {
+           "type": "list-menu",
+           "name": "List Mega Menu",
+           "settings": [
+               {
+                   "type": "header",
+                   "content": "Menu List Block"
+               },
+               {
+                   "type": "text",
+                   "id": "list_menu_name",
+                   "default": "Menu Name",
+                   "label": "Menu Name"
+               },
+               {
+                   "type": "text",
+                   "id": "list_menu_heading",
+                   "default": "Menu Heading",
+                   "label": "Menu Heading"
+               },
+               {
+                   "type": "text",
+                   "id": "menu_title1",
+                   "default": "Menu 1",
+                   "label": "Menu Title"
+               },
+               {
+                   "type": "link_list",
+                   "id": "menu_link1",
+                   "label": "Nav Menu"
                 },
                 {
                     "type": "text",
