@@ -82,3 +82,35 @@
 {% endcomment %}
 <link href="{{ 'custom.css' | asset_url }}" rel="stylesheet">
 <script src="{{ 'custom.js' | asset_url }}" defer></script>
+
+ <!-- Add Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<body class="{{ request.page_type | prepend: 'page-type-' }}">
+  <a class="visually-hidden-focusable" href="#main">
+    {{ 'general.accessibility.skip_content' | t }}
+  </a>
+  
+  <div id="header-group" class="sticky-top">
+    {% section 'header-group' %}
+  </div>
+
+  <main id="main">
+    {{ content_for_layout }}
+  </main>
+
+  <div id="footer-group">
+    {% section 'footer-group' %}
+  </div>
+
+  {% liquid
+    render 'offcanvas-cart'
+    render 'offcanvas-search'
+    render 'modal-localization'
+    render 'rich-snippets'
+  %}
+
+  <!-- Add Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
