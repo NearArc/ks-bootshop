@@ -1,6 +1,42 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Custom Mega Menu",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "custom_main_menu",
+      "label": "Select Custom Mega Menu"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    },
+    {
+      "type": "range",
+      "id": "logo_height",
+      "label": "Logo Height",
+      "min": 50,
+      "max": 200,
+      "step": 2,
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "pt",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 5,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "pb",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 5,
+      "default": 2
+    }
+  ]
+}
 {% endschema %}
