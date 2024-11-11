@@ -246,3 +246,31 @@ document.querySelectorAll('.shopify-localization-form button').forEach(btn => {
     btn.closest('form').submit()
   })
 })
+
+/* new stuff */
+document.addEventListener('DOMContentLoaded', function () {
+  const menuItems = document.querySelectorAll('.has-dropdown, .has-submenu');
+
+  menuItems.forEach(item => {
+    item.addEventListener('click', function (e) {
+      e.stopPropagation();
+      const dropdown = item.querySelector('.dropdown, .submenu');
+      
+      // Toggle submenu
+      if (dropdown) {
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+      }
+    });
+  });
+
+  // Close all menus when clicking outside
+  document.addEventListener('click', function () {
+    menuItems.forEach(item => {
+      const dropdown = item.querySelector('.dropdown, .submenu');
+      if (dropdown) {
+        dropdown.style.display = 'none';
+      }
+    });
+  });
+});
+
