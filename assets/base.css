@@ -708,6 +708,36 @@ hr {
   border-radius: var(--bs-border-radius);
 }
 
+   /* Mega Menu Styling */
+.mega-menu {
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px; /* Adjust width as needed */
+  padding: 20px;
+  background-color: #ffffff; /* Background color for the mega menu */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  border-radius: 8px;
+}
+
+.mega-menu-row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.mega-menu-column {
+  flex: 1 1 33%; /* Three columns */
+  padding: 10px;
+}
+
+.mega-menu-column .dropdown-item {
+  padding: 5px 0;
+  color: #333;
+}
+
+.mega-menu-column .dropdown-item:hover {
+  color: #007bff; /* Optional hover color */
+}
 
 
 /* 
