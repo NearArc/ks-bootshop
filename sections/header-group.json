@@ -65,6 +65,18 @@
         "pb": 4
       }
     },
+    "separator_ht6pbf": {
+      "type": "separator",
+      "settings": {
+        "bg_color": "bg-primary",
+        "bg_opacity": 100,
+        "height": 4,
+        "container": "",
+        "container_max_width": "",
+        "pt": 0,
+        "pb": 0
+      }
+    },
     "navbar": {
       "type": "navbar",
       "blocks": {
@@ -114,6 +126,7 @@
   },
   "order": [
     "announcement_bar_Ge9W3V",
+    "separator_ht6pbf",
     "navbar"
   ]
 }
