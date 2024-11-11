@@ -18,22 +18,43 @@
           role="button">
           {{ link.title }}
         </a>
-        <ul class="dropdown-menu">
-          {% for child_link in link.links %}
-            <li>
-              {% if child_link.title == '-' %}
-                <hr class="dropdown-divider">
-              {% else %}
-                <a 
-                  class="dropdown-item {% if child_link.active %}active{% endif %}" 
-                  href="{{ child_link.url }}"
-                  aria-current="{% if child_link.active %}page{% endif %}">
-                  {{ child_link.title }}
-                </a>
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
+
+        <!-- Conditional Dropdown Menu Options -->
+        {% if link.title == "Mega Menu Item" %}
+          <!-- Mega Menu Structure -->
+          <div class="dropdown-menu mega-menu">
+            <div class="mega-menu-row">
+              {% for child_link in link.links %}
+                <div class="mega-menu-column">
+                  <a 
+                    class="dropdown-item {% if child_link.active %}active{% endif %}" 
+                    href="{{ child_link.url }}"
+                    aria-current="{% if child_link.active %}page{% endif %}">
+                    {{ child_link.title }}
+                  </a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% else %}
+          <!-- Standard Dropdown Structure -->
+          <ul class="dropdown-menu">
+            {% for child_link in link.links %}
+              <li>
+                {% if child_link.title == '-' %}
+                  <hr class="dropdown-divider">
+                {% else %}
+                  <a 
+                    class="dropdown-item {% if child_link.active %}active{% endif %}" 
+                    href="{{ child_link.url }}"
+                    aria-current="{% if child_link.active %}page{% endif %}">
+                    {{ child_link.title }}
+                  </a>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
       {% endif %}
     </li>
   {% endfor %}
