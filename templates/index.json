@@ -15,15 +15,17 @@
         "slide_Q4UPQq": {
           "type": "slide",
           "settings": {
+            "img_mobile": "shopify://shop_images/flagonpole.jpg",
+            "img_desktop": "shopify://shop_images/lyly-pics-jBTcaPHw0RQ-unsplash_000b4825-bbdc-449c-b735-31e9b04646e9.jpg",
             "overlay_color": "#000000",
-            "overlay_opacity": 10,
+            "overlay_opacity": 60,
             "overlay_blur": 2,
-            "subtitle": "Developed by KondaSoft",
-            "title": "Welcome to KS BootShop Theme",
-            "description": "<p>Free Shopify Theme inspired by simplicity and elegance.</p>",
-            "btn_primary_text": "Get theme",
+            "subtitle": "",
+            "title": "PROFESSIONAL FLAGPOLE INSTALLS",
+            "description": "<p>- Raise Your Pride -</p>",
+            "btn_primary_text": "GET A QUOTE",
             "btn_primary_url": "https://www.kondasoft.com/collections/shopify-themes/products/ks-bootshop",
-            "btn_secondary_text": "Learn more",
+            "btn_secondary_text": "SEE OUR WORK",
             "btn_secondary_url": "https://www.kondasoft.com/collections/shopify-themes/products/ks-bootshop"
           }
         }
