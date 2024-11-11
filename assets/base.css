@@ -755,6 +755,11 @@ hr {
   display: block;
 }
 
+.dropdown-menu.show {
+  display: block;
+}
+
+
 /* 
   Badge
 */
