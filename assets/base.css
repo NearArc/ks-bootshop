@@ -708,72 +708,52 @@ hr {
   border-radius: var(--bs-border-radius);
 }
 
-/* Main dropdown menu styling */
-.header__submenu {
-  position: absolute;
-  display: none; /* Hidden by default */
-  top: 100%;
-  left: 0;
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  min-width: 200px;
+/* Style for second-level dropdown */
+.dropdown-menu .dropdown-submenu .dropdown-menu {
+  left: 100%;
+  top: 0;
+  margin-top: -1px;
 }
 
-/* Show dropdown menu on click */
-.header__menu-item[open] .header__submenu {
-  display: block;
+/* Position the third-level dropdown */
+.dropdown-submenu {
+  position: relative;
 }
 
-/* Side pop-out submenu */
-.side-submenu {
-  position: absolute;
-  display: none; /* Hidden by default */
+.dropdown-submenu > .dropdown-menu {
   top: 0;
   left: 100%;
-  background-color: #f8f8f8;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  min-width: 180px;
+  margin-left: -1px;
 }
 
-/* Show side submenu on hover of the parent submenu item */
-.submenu-item:hover .side-submenu {
+/* Adjust the caret for dropdown toggles */
+.dropdown-submenu > a:after {
+  content: ">";
+  float: right;
+  margin-right: -1em;
+}
+
+.dropdown-submenu > .dropdown-toggle::after {
+  display: none;
+}
+
+/* Ensure the dropdowns are displayed on hover */
+.dropdown-submenu:hover > .dropdown-menu {
   display: block;
 }
 
-
-   /* Mega Menu Styling */
-.mega-menu {
-  display: flex;
-  flex-wrap: wrap;
-  width: 600px; /* Adjust width as needed */
-  padding: 20px;
-  background-color: #ffffff; /* Background color for the mega menu */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
-  border-radius: 8px;
+/* Hide the dropdown menu by default */
+.dropdown-menu {
+  display: none;
 }
 
-.mega-menu-row {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+.dropdown-item.dropdown-toggle {
+  cursor: pointer;
 }
 
-.mega-menu-column {
-  flex: 1 1 33%; /* Three columns */
-  padding: 10px;
+.dropdown:hover > .dropdown-menu {
+  display: block;
 }
-
-.mega-menu-column .dropdown-item {
-  padding: 5px 0;
-  color: #333;
-}
-
-.mega-menu-column .dropdown-item:hover {
-  color: #007bff; /* Optional hover color */
-}
-
 
 /* 
   Badge
