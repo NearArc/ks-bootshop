@@ -13,22 +13,6 @@
   
 
 
-  {
-    "name": "Dropdown Menu Options",
-    "settings": [
-      {
-        "type": "select",
-        "id": "dropdown_menu_style",
-        "label": "Dropdown Menu Style",
-        "options": [
-          { "value": "standard", "label": "Standard Dropdown" },
-          { "value": "side_popout", "label": "Side Pop-Out" }
-        ],
-        "default": "standard"
-      }
-    ]
-  },
-
 
 
 
