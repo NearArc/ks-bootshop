@@ -20,16 +20,41 @@
         </a>
         <ul class="dropdown-menu">
           {% for child_link in link.links %}
-            <li>
+            <li class="{% if child_link.links %}dropdown-submenu{% endif %}">
               {% if child_link.title == '-' %}
                 <hr class="dropdown-divider">
               {% else %}
-                <a 
-                  class="dropdown-item {% if child_link.active %}active{% endif %}" 
-                  href="{{ child_link.url }}"
-                  aria-current="{% if child_link.active %}page{% endif %}">
-                  {{ child_link.title }}
-                </a>
+                {% if child_link.links == blank %}
+                  <!-- Second-Level Menu Item -->
+                  <a 
+                    class="dropdown-item {% if child_link.active %}active{% endif %}" 
+                    href="{{ child_link.url }}"
+                    aria-current="{% if child_link.active %}page{% endif %}">
+                    {{ child_link.title }}
+                  </a>
+                {% else %}
+                  <!-- Second-Level Dropdown (Submenu) -->
+                  <a 
+                    class="dropdown-item dropdown-toggle {% if child_link.active %}active{% endif %}" 
+                    href="#"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ child_link.title }}
+                  </a>
+                  <ul class="dropdown-menu">
+                    {% for grandchild_link in child_link.links %}
+                      <li>
+                        <!-- Third-Level Menu Item -->
+                        <a 
+                          class="dropdown-item {% if grandchild_link.active %}active{% endif %}" 
+                          href="{{ grandchild_link.url }}"
+                          aria-current="{% if grandchild_link.active %}page{% endif %}">
+                          {{ grandchild_link.title }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
               {% endif %}
             </li>
           {% endfor %}
