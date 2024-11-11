@@ -7,6 +7,35 @@
     "theme_documentation_url": "https:\/\/www.kondasoft.com",
     "theme_support_url": "https:\/\/community.kondasoft.com"
   },
+
+
+  
+  
+
+
+  {
+    "name": "Dropdown Menu Options",
+    "settings": [
+      {
+        "type": "select",
+        "id": "dropdown_menu_style",
+        "label": "Dropdown Menu Style",
+        "options": [
+          { "value": "standard", "label": "Standard Dropdown" },
+          { "value": "side_popout", "label": "Side Pop-Out" }
+        ],
+        "default": "standard"
+      }
+    ]
+  },
+
+
+
+
+
+
+  
+  
   {
     "name": "Colors",
     "settings": [
