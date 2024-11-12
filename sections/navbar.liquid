@@ -85,66 +85,72 @@
         </div> 
       </nav>
     {% else %}
-      <nav 
-        id="navbar-desktop" 
-        class="navbar d-none d-desktop-block p-0"
-        {{ block.shopify_attributes }}>
+      <nav id="navbar-desktop" class="navbar d-none d-desktop-block p-0" {{ block.shopify_attributes }}>
+  <div class="container">
+    <div class="row align-items-center justify-content-between">
 
+      <!-- Logo -->
+      <div class="col-auto logo-container">
+        {% render 'navbar-logo', block: block %}
+      </div>
 
-        
-<div class="col-4 text-center logo-container">
-  {% render 'navbar-logo', block: block %}
-</div>
+      <!-- Search Bar -->
+      <div class="col search-container">
+        <form action="/search" method="get" class="search-bar">
+          <input type="text" name="q" placeholder="Search Product Name / Type or Brand" class="form-control">
+        </form>
+      </div>
 
+      <!-- Phone Number and Cart/Account Icons -->
+      <div class="col-auto d-flex align-items-center">
+        <div class="phone-number me-4">
+          <span>Call us: 123-456-7890</span>
+        </div>
+        {% if shop.customer_accounts_enabled %}
+          <a href="{{ routes.account_url }}" class="nav-link-icon me-3">
+            {% render 'svg-icons', icon: 'account' %}
+          </a>
+        {% endif %}
+        <a href="{{ routes.cart_url }}" class="nav-link-icon me-3">
+          {% render 'svg-icons', icon: 'cart' %}
+        </a>
+        <a href="https://facebook.com/yourpage" target="_blank" class="nav-link-icon">
+          {% render 'svg-icons', icon: 'facebook' %}
+        </a>
+      </div>
+    </div>
+    
+    <!-- Main Navigation Menu -->
+    <div class="row">
+      <ul class="main-menu d-flex justify-content-center">
+        {% for link in linklists[section.settings.selected_menu].links %}
+          <li class="menu-item has-dropdown">
+            <a href="{{ link.url }}" class="menu-link">{{ link.title }}</a>
+            {% if link.links.size > 0 %}
+              <ul class="dropdown">
+                {% for sublink in link.links %}
+                  <li class="submenu-item has-submenu">
+                    <a href="{{ sublink.url }}" class="submenu-link">{{ sublink.title }}</a>
+                    {% if sublink.links.size > 0 %}
+                      <ul class="submenu">
+                        {% for item in sublink.links %}
+                          <li class="submenu-item">
+                            <a href="{{ item.url }}" class="submenu-link">{{ item.title }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</nav>
 
-        
-        <!-- Desktop Navbar Layout -->
-        <div class="container d-flex flex-column align-items-center">
-          
-          <!-- Top Row: Logo, Search Bar, and Icons -->
-          <div class="row w-100 align-items-center justify-content-between">
-            <div class="col-4">
-              {% render 'navbar-logo', block: block %}
-            </div>
-
-         <!--Search Bar -->
-          <div class="col-4 d-flex justify-content-center search-container">
-  <form action="/search" method="get" class="search-bar">
-    <input type="text" name="q" placeholder="Search..." class="form-control">
-  </form>
-</div>
-
-
-            <!--Phone # Number -->
-            <div class="col-4 d-flex justify-content-end align-items-center phone-number">
-  <span>123-456-7890</span> <!-- Replace with your actual phone number -->
-</div>
-
-            <!-- Facebook and cart -->
-            <div class="col-4 d-flex justify-content-end align-items-center cart-and-social">
-  <a href="#cart-link" class="nav-link-icon"> <!-- Replace #cart-link with actual cart URL -->
-    {% render 'svg-icons', icon: 'cart' %}
-  </a>
-  <a href="https://facebook.com/yourpage" target="_blank" class="nav-link-icon ms-3"> <!-- Replace with your Facebook URL -->
-    {% render 'svg-icons', icon: 'facebook' %} <!-- Ensure you have a Facebook icon in your svg-icons file -->
-  </a>
-</div>
-
-
-
-            
-            <div class="col-4 d-flex justify-content-end">
-              <!-- Account and Cart Icons -->
-              {% if shop.customer_accounts_enabled %}
-                <a href="{{ routes.account_url }}" class="nav-link nav-link-icon">
-                  {% render 'svg-icons', icon: 'account' %}
-                </a>
-              {% endif %}
-              <a href="{{ routes.cart_url }}" class="nav-link nav-link-icon">
-                {% render 'svg-icons', icon: 'cart' %}
-              </a>
-            </div>
-          </div>
 
           <!-- Bottom Row: Centered Tabs -->
           <div class="row w-100">
