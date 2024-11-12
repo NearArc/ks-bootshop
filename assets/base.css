@@ -656,7 +656,7 @@ hr {
 
 .search-bar .form-control {
   width: 100%;
-  max-width: 1000px;
+  max-width: 2000px;
   border: 2px solid #000;
   border-radius: 8px;
   padding: 10px 15px;
