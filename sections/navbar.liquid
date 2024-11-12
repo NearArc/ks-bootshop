@@ -9,20 +9,22 @@
     {{ section.settings.border_color }} 
     {{ section.settings.shadow }}
   "
-    style="
+  style="
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
     --bs-bg-opacity: {{ section.settings.bg_opacity | append: '%' }};
     --bs-border-opacity: {{ section.settings.border_opacity | append: '%' }};
   ">
+
   {% for block in section.blocks %}
     {% if block.type == 'mobile' %}
+      <!-- Mobile Navigation -->
       <nav 
         id="navbar-mobile" 
         class="navbar d-desktop-none p-0"
         {{ block.shopify_attributes }}>
         <div 
-          class="container d-block {{ block.settings.pt | prepend: 'pt-' }} {{  block.settings.pb | prepend: 'pb-' }}"
+          class="container d-block {{ block.settings.pt | prepend: 'pt-' }} {{ block.settings.pb | prepend: 'pb-' }}"
           style="max-width: {{ block.settings.container_max_width | append: 'px' }};">
           <div class="row align-items-center">
             <div class="col-5">
@@ -86,70 +88,84 @@
           </div>
         </div> 
       </nav>
-    {% else %}
-<nav id="navbar-desktop" class="navbar d-none d-desktop-block p-0" {{ block.shopify_attributes }}>
-  <div class="container">
-    <div class="row align-items-center justify-content-between">
-      <div class="col-auto logo-container">
-        {% render 'navbar-logo', block: block %}
-      </div>
-      <div class="col search-container">
-        <form action="/search" method="get" class="search-bar">
-          <input type="text" name="q" placeholder="Search Product Name / Type or Brand" class="form-control">
-        </form>
-      </div>
-      <div class="col-auto d-flex align-items-center">
-        <div class="phone-number me-4">
-          <span>Call us: 123-456-7890</span>
-        </div>
-        {% if shop.customer_accounts_enabled %}
-          <a href="{{ routes.account_url }}" class="nav-link-icon me-3">
-            {% render 'svg-icons', icon: 'account' %}
-          </a>
-        {% endif %}
-        <a href="{{ routes.cart_url }}" class="nav-link-icon me-3">
-          {% render 'svg-icons', icon: 'cart' %}
-        </a>
-        <a href="https://facebook.com/yourpage" target="_blank" class="nav-link-icon">
-          {% render 'svg-icons', icon: 'facebook' %}
-        </a>
-      </div>
-    </div>
-    
-    <!-- Main Navigation Menu -->
-    <div class="row">
-      <ul class="main-menu d-flex justify-content-center">
-        {% for link in linklists[section.settings.selected_menu].links %}
-          <li class="menu-item has-dropdown">
-            <a href="{{ link.url }}" class="menu-link">{{ link.title }}</a>
-            {% if link.links.size > 0 %}
-              <ul class="dropdown">
-                {% for sublink in link.links %}
-                  <li class="submenu-item has-submenu">
-                    <a href="{{ sublink.url }}" class="submenu-link">{{ sublink.title }}</a>
-                    {% if sublink.links.size > 0 %}
-                      <ul class="submenu">
-                        {% for item in sublink.links %}
-                          <li class="submenu-item">
-                            <a href="{{ item.url }}" class="submenu-link">{{ item.title }}</a>
-                          </li>
-                        {% endfor %}
-                      </ul>
-                    {% endif %}
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
-</nav>
 
+    {% else %}
+      <!-- Desktop Navigation -->
+      <nav id="navbar-desktop" class="navbar d-none d-desktop-block p-0" {{ block.shopify_attributes }}>
+        <!-- Top Bar with Phone Number and Shipping Notice -->
+        <div class="top-bar d-flex justify-content-between align-items-center" style="background-color: #003366; color: white; padding: 5px 20px; font-size: 14px;">
+          <span>Call us: 800-858-8776</span>
+          <span>FREE Shipping Available Orders $75*</span>
+        </div>
+
+        <!-- Main Navbar Container -->
+        <div class="navbar-container d-flex justify-content-between align-items-center" style="padding: 10px 20px;">
+          <!-- Logo -->
+          <div class="logo-container">
+            {% render 'navbar-logo', block: block %}
+          </div>
+
+          <!-- Search Bar -->
+          <div class="search-container" style="flex-grow: 1; display: flex; justify-content: center;">
+            <form action="/search" method="get" class="search-bar" style="width: 100%; max-width: 600px;">
+              <input type="text" name="q" placeholder="Search Product Name / Type or Brand" class="form-control" style="width: 100%; border: 2px solid #000; border-radius: 0; padding: 10px; font-size: 16px;">
+            </form>
+          </div>
+
+          <!-- Icons -->
+          <div class="icons-container d-flex align-items-center">
+            {% if shop.customer_accounts_enabled %}
+              <a href="{{ routes.account_url }}" class="nav-link-icon" style="margin-left: 15px; font-size: 24px; color: #333;">
+                {% render 'svg-icons', icon: 'account' %}
+              </a>
+            {% endif %}
+            <a href="/gift-certificate" class="nav-link-icon" style="margin-left: 15px; font-size: 24px; color: #333;">
+              {% render 'svg-icons', icon: 'gift' %}
+            </a>
+            <a href="{{ routes.cart_url }}" class="nav-link-icon" style="margin-left: 15px; font-size: 24px; color: #333;">
+              {% render 'svg-icons', icon: 'cart' %}
+            </a>
+          </div>
+        </div>
+
+        <!-- Main Navigation Menu -->
+        <div class="menu-wrapper" style="padding-top: 10px;">
+          <ul class="main-menu d-flex justify-content-center" style="list-style: none; padding: 0; margin: 0; gap: 20px;">
+            {% for link in linklists[section.settings.selected_menu].links %}
+              <li class="menu-item has-dropdown" style="position: relative;">
+                <a href="{{ link.url }}" class="menu-link" style="text-decoration: none; color: #333; font-weight: 500; padding: 10px 20px; display: inline-block;">
+                  {{ link.title }}
+                </a>
+                {% if link.links.size > 0 %}
+                  <!-- Dropdown Menu -->
+                  <ul class="dropdown" style="display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #ddd; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); padding: 15px 20px; min-width: 200px; z-index: 1000;">
+                    {% for sublink in link.links %}
+                      <li class="submenu-item">
+                        <a href="{{ sublink.url }}" class="submenu-link" style="display: block; padding: 8px 10px; color: #333; text-decoration: none;">
+                          {{ sublink.title }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </nav>
     {% endif %}
   {% endfor %}
 </navbar-wrapper>
+
+<!-- Dropdown hover functionality -->
+<style>
+  .menu-item:hover .dropdown {
+    display: block;
+  }
+  .nav-link-icon:hover {
+    color: gray;
+  }
+</style>
 
 {% for block in section.blocks %}
   {% if block.type == 'mobile' %}
@@ -161,7 +177,6 @@
 
 
   /* new code */
-
 {
   "name": "Navbar",
   "limit": 1,
