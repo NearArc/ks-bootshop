@@ -102,7 +102,7 @@
             "logo_transparent": "shopify://shop_images/LogoRenderBanner.png",
             "logo_height": 100,
             "main_menu": "mega-menu",
-            "pt": 11,
+            "pt": 3,
             "pb": 12
           }
         }
@@ -112,6 +112,8 @@
         "069e870e-aed4-4929-bf73-c0daca8be18e"
       ],
       "settings": {
+        "padding_top": 11,
+        "padding_bottom": 16,
         "selected_menu": "mega-menu",
         "bg_color": "bg-body",
         "bg_opacity": 0,
