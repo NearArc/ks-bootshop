@@ -652,6 +652,7 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .search-bar .form-control {
@@ -686,6 +687,9 @@ hr {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  justify-content: center; /* Center the menu items */
+  gap: 20px; /* Add space between menu items */
 }
 
 .main-menu .menu-item {
@@ -697,7 +701,13 @@ hr {
   text-decoration: none;
   color: #333;
   font-weight: 500;
+  font-size: {{ section.settings.menu_font_size }}px; /* Dynamic font size */
 }
+
+.menu-link:hover {
+  color: #000;
+}
+
 
 
 /* Dropdown menu styling */
