@@ -113,7 +113,9 @@
         "069e870e-aed4-4929-bf73-c0daca8be18e"
       ],
       "settings": {
-        "menu_font_size": 23,
+        "logo": "shopify://shop_images/LogoRenderSideWays.png",
+        "logo_width": 84,
+        "logo_height": 93,
         "padding_top": 0,
         "padding_bottom": 0,
         "selected_menu": "mega-menu",
