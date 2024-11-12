@@ -274,3 +274,23 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+  const menuItems = document.querySelectorAll(".menu-item.has-dropdown");
+
+  menuItems.forEach(function(item) {
+    item.addEventListener("mouseenter", function() {
+      const dropdown = item.querySelector(".dropdown");
+      if (dropdown) {
+        dropdown.style.display = "block";
+      }
+    });
+
+    item.addEventListener("mouseleave", function() {
+      const dropdown = item.querySelector(".dropdown");
+      if (dropdown) {
+        dropdown.style.display = "none";
+      }
+    });
+  });
+});
+
