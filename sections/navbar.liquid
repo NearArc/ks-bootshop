@@ -16,140 +16,74 @@
     --bs-border-opacity: {{ section.settings.border_opacity | append: '%' }};
   ">
 
+  <!-- Desktop Navigation -->
+  <nav id="navbar-desktop" class="navbar d-none d-desktop-block p-0">
+    <!-- Top Bar with Phone Number and Shipping Notice -->
+    <div class="top-bar d-flex justify-content-between align-items-center" style="background-color: #003366; color: white; padding: 5px 20px; font-size: 14px;">
+      <span>Call us: 800-858-8776</span>
+      <span>FREE Shipping Available Orders $75*</span>
+    </div>
+
+    <!-- Main Navbar Container -->
+    <div class="navbar-container d-flex justify-content-between align-items-center" style="padding: 10px 20px;">
+      <!-- Logo -->
+      <div class="logo-container">
+        {% render 'navbar-logo', block: block %}
+      </div>
+
+      <!-- Search Bar -->
+      <div class="search-container" style="flex-grow: 1; display: flex; justify-content: center;">
+        <form action="/search" method="get" class="search-bar" style="width: 100%; max-width: 900px;">
+          <input type="text" name="q" placeholder="Search Product Name" class="form-control" style="width: 100%; border: 2px solid #000; border-radius: 0; padding: 10px; font-size: 16px;">
+        </form>
+      </div>
+
+      <!-- Icons -->
+      <div class="icons-container d-flex align-items-center">
+        {% if shop.customer_accounts_enabled %}
+          <a href="{{ routes.account_url }}" class="nav-link-icon" style="margin-left: 15px; font-size: 24px; color: #333;">
+            {% render 'svg-icons', icon: 'account' %}
+          </a>
+        {% endif %}
+        <a href="{{ routes.cart_url }}" class="nav-link-icon" style="margin-left: 15px; font-size: 24px; color: #333;">
+          {% render 'svg-icons', icon: 'cart' %}
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Navigation Menu -->
+    <div class="menu-wrapper" style="padding-top: 10px;">
+      <ul class="main-menu d-flex justify-content-center" style="list-style: none; padding: 0; margin: 0; gap: 20px;">
+        {% for link in linklists[section.settings.selected_menu].links %}
+          <li class="menu-item has-dropdown" style="position: relative;">
+            <a href="{{ link.url }}" class="menu-link" style="text-decoration: none; color: #333; font-weight: 500; padding: 10px 20px; display: inline-block;">
+              {{ link.title }}
+              {% if link.links.size > 0 %}
+                <span class="dropdown-arrow">▼</span> <!-- Adds arrow for dropdown -->
+              {% endif %}
+            </a>
+            {% if link.links.size > 0 %}
+              <!-- Dropdown Menu -->
+              <ul class="dropdown" style="display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #ddd; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); padding: 15px 20px; min-width: 200px;">
+                {% for sublink in link.links %}
+                  <li class="submenu-item">
+                    <a href="{{ sublink.url }}" class="submenu-link" style="display: block; padding: 8px 10px; color: #333; text-decoration: none;">
+                      {{ sublink.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation (as per your original structure) -->
   {% for block in section.blocks %}
     {% if block.type == 'mobile' %}
-      <!-- Mobile Navigation -->
-      <nav 
-        id="navbar-mobile" 
-        class="navbar d-desktop-none p-0"
-        {{ block.shopify_attributes }}>
-        <div 
-          class="container d-block {{ block.settings.pt | prepend: 'pt-' }} {{ block.settings.pb | prepend: 'pb-' }}"
-          style="max-width: {{ block.settings.container_max_width | append: 'px' }};">
-          <div class="row align-items-center">
-            <div class="col-5">
-              <ul class="nav flex-nowrap">
-                <li class="nav-item">
-                  <a 
-                    class="nav-link nav-link-icon ms-n3"
-                    href="#offcanvas-menu" 
-                    data-bs-toggle="offcanvas" 
-                    aria-controls="offcanvas-menu"
-                    aria-label="{{ 'general.accessibility.menu' | t }}"
-                    role="button">
-                    {% render 'svg-icons', icon: 'menu' %}
-                  </a>
-                </li>
-                {% if shop.customer_accounts_enabled %}
-                  <li class="nav-item">
-                    <a 
-                      class="nav-link nav-link-icon {% if template.name == 'login' or template.name == 'account' %}active{% endif %}" 
-                      aria-current="{% if template.name == 'login' or template.name == 'account' %}page{% endif %}" 
-                      href="{{ routes.account_url }}"
-                      aria-label="{{ 'general.accessibility.account' | t }}">
-                      {% render 'svg-icons', icon: 'account' %}
-                    </a>
-                  </li>
-                {% endif %}
-              </ul>
-            </div>
-            <div class="col-8 text-center">
-              {% render 'navbar-logo', block: block %}
-            </div>
-            <div class="col-5">
-              <ul class="nav flex-nowrap justify-content-end">
-                {% if settings.search %}
-                  <li class="nav-item">
-                    <a
-                      class="nav-link nav-link-icon" 
-                      href="#offcanvas-search" 
-                      data-bs-toggle="offcanvas"
-                      aria-controls="offcanvas-search" 
-                      aria-label="{{ 'general.accessibility.search' | t }}"
-                      role="button">
-                      {% render 'svg-icons', icon: 'search' %}
-                    </a>
-                  </li>
-                {% endif %}
-                <li class="nav-item">
-                  <a 
-                    class="nav-link nav-link-icon me-n3" 
-                    href="#offcanvas-cart" 
-                    data-bs-toggle="offcanvas" 
-                    aria-controls="offcanvas-cart" 
-                    aria-label="{{ 'general.accessibility.cart' | t }} {{ cart.item_count }}"
-                    role="button">
-                    {% render 'svg-icons', icon: 'cart' %}
-                    {% render 'cart-count-badge' %}
-                  </a>  
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div> 
-      </nav>
-
-    {% else %}
-      <!-- Desktop Navigation -->
-      <nav id="navbar-desktop" class="navbar d-none d-desktop-block p-0" {{ block.shopify_attributes }}>
-        <!-- Top Bar with Phone Number and Shipping Notice -->
-        <div class="top-bar d-flex justify-content-between align-items-center" style="background-color: #003366; color: white; padding: 5px 20px; font-size: 14px;">
-          <span>Call us: 800-858-8776</span>
-          <span>FREE Shipping Available Orders $75*</span>
-        </div>
-
-        <!-- Main Navbar Container -->
-        <div class="navbar-container d-flex justify-content-between align-items-center" style="padding: 10px 20px;">
-          <!-- Logo -->
-          <div class="logo-container">
-            {% render 'navbar-logo', block: block %}
-          </div>
-
-          <!-- Search Bar -->
-          <div class="search-container" style="flex-grow: 1; display: flex; justify-content: center;">
-            <form action="/search" method="get" class="search-bar" style="width: 100%; max-width: 900px;">
-              <input type="text" name="q" placeholder="Search Product Name" class="form-control" style="width: 100%; border: 2px solid #000; border-radius: 0; padding: 10px; font-size: 16px;">
-            </form>
-          </div>
-
-          <!-- Icons -->
-          <div class="icons-container d-flex align-items-center">
-            {% if shop.customer_accounts_enabled %}
-              <a href="{{ routes.account_url }}" class="nav-link-icon" style="margin-left: 15px; font-size: 24px; color: #333;">
-                {% render 'svg-icons', icon: 'account' %}
-              </a>
-            {% endif %}
-            <a href="{{ routes.cart_url }}" class="nav-link-icon" style="margin-left: 15px; font-size: 24px; color: #333;">
-              {% render 'svg-icons', icon: 'cart' %}
-            </a>
-          </div>
-        </div>
-
-        <!-- Main Navigation Menu -->
-        <div class="menu-wrapper" style="padding-top: 10px;">
-          <ul class="main-menu d-flex justify-content-center" style="list-style: none; padding: 0; margin: 0; gap: 20px;">
-            {% for link in linklists[section.settings.selected_menu].links %}
-              <li class="menu-item has-dropdown" style="position: relative;">
-                <a href="{{ link.url }}" class="menu-link" style="text-decoration: none; color: #333; font-weight: 500; padding: 10px 20px; display: inline-block;">
-                  {{ link.title }}
-                </a>
-                {% if link.links.size > 0 %}
-                  <!-- Dropdown Menu -->
-                  <ul class="dropdown" style="display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #ddd; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); padding: 15px 20px; min-width: 200px; z-index: 1000;">
-                    {% for sublink in link.links %}
-                      <li class="submenu-item">
-                        <a href="{{ sublink.url }}" class="submenu-link" style="display: block; padding: 8px 10px; color: #333; text-decoration: none;">
-                          {{ sublink.title }}
-                        </a>
-                      </li>
-                    {% endfor %}
-                  </ul>
-                {% endif %}
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </nav>
+      {% render 'offcanvas-menu', block: block %}
     {% endif %}
   {% endfor %}
 </navbar-wrapper>
@@ -159,10 +93,12 @@
   .menu-item:hover .dropdown {
     display: block;
   }
-  .nav-link-icon:hover {
-    color: gray;
+  .dropdown-arrow {
+    margin-left: 5px;
+    font-size: 12px;
   }
 </style>
+
 
 {% for block in section.blocks %}
   {% if block.type == 'mobile' %}
