@@ -102,8 +102,8 @@
             "logo_transparent": "shopify://shop_images/LogoRenderBanner.png",
             "logo_height": 100,
             "main_menu": "mega-menu",
-            "pt": 2,
-            "pb": 2
+            "pt": 11,
+            "pb": 12
           }
         }
       },

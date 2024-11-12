@@ -656,7 +656,7 @@ hr {
 
 .search-bar .form-control {
   width: 100%;
-  max-width: 500px;
+  max-width: 1000px;
   border: 2px solid #000;
   border-radius: 8px;
   padding: 10px 15px;
@@ -686,10 +686,9 @@ hr {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
 }
 
-.menu-item {
+.main-menu .menu-item {
   position: relative;
   padding: 10px 20px;
 }
@@ -700,9 +699,6 @@ hr {
   font-weight: 500;
 }
 
-.menu-link:hover {
-  color: #000;
-}
 
 /* Dropdown menu styling */
 .dropdown, .submenu {
@@ -715,7 +711,7 @@ hr {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.menu-item:hover .dropdown,
+.menu-item:hover .dropdown, 
 .submenu-item:hover .submenu {
   display: block;
 }
