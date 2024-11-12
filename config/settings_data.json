@@ -9,6 +9,8 @@
  */
 {
   "current": {
+    "custom_menu_block": "mega-menu",
+    "logo_height": 102,
     "color_primary": "#000a4a",
     "color_secondary": "#777777",
     "color_body_bg": "#ffffff",
