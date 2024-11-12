@@ -647,22 +647,21 @@ hr {
   width: auto;
 }
 
-/* Centered search bar with bold outline */
-.search-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin: 0 auto;
+/* Top Bar Styling */
+.top-bar {
+  background-color: #003366; /* Dark blue */
+  color: white;
+  font-size: 14px;
+  padding: 5px 20px;
 }
 
-.search-bar .form-control {
+/* Centered Search Bar */
+.search-container .form-control {
+  max-width: 600px;
   width: 100%;
-  max-width: 2000px;
-  height: 40px;
-  border: 2px solid black; /* Bold outline */
-  border-radius: 0; /* Square edges */
-  padding: 8px 15px;
+  border: 2px solid black;
+  border-radius: 0;
+  padding: 10px;
   font-size: 16px;
 }
 
@@ -684,61 +683,51 @@ hr {
   color: gray;
 }
 
-/* Main menu styles */
+/* Main Menu */
 .main-menu {
+  display: flex;
+  justify-content: center;
   list-style: none;
+  gap: 20px;
   padding: 0;
   margin: 0;
-  display: flex;
-  justify-content: center; /* Center the menu items */
-  gap: 20px; /* Add space between menu items */
-}
-
-.main-menu .menu-item {
-  padding: 10px 20px;
 }
 
 .menu-link {
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  font-size: {{ section.settings.menu_font_size }}px; /* Dynamic font size */
+  padding: 10px 20px;
 }
 
-.menu-link:hover {
-  color: #000;
-}
-
-
-
-/* Dropdown menu styling */
-.dropdown, .submenu {
+/* Dropdown Menu */
+.dropdown {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  background: #fff;
+  background-color: #fff;
   border: 1px solid #ddd;
+  padding: 15px 20px;
+  min-width: 200px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.menu-item:hover .dropdown, 
-.submenu-item:hover .submenu {
+.menu-item:hover .dropdown {
   display: block;
 }
 
-.dropdown .submenu-link, .submenu .submenu-link {
-  padding: 10px;
-  display: block;
-  text-decoration: none;
+.submenu-link {
   color: #333;
+  padding: 8px 10px;
+  text-decoration: none;
+  display: block;
 }
 
-.dropdown .submenu-link:hover, .submenu .submenu-link:hover {
+.submenu-link:hover {
   background-color: #f0f0f0;
   color: #000;
 }
-
 
 
 /* 
