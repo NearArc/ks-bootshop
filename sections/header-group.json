@@ -84,8 +84,8 @@
           "type": "mobile",
           "settings": {
             "container_max_width": "",
-            "logo": "shopify://shop_images/LogoRenderBanner.png",
-            "logo_transparent": "shopify://shop_images/LogoRenderBanner.png",
+            "logo": "shopify://shop_images/LogoRender.png",
+            "logo_transparent": "shopify://shop_images/LogoRender.png",
             "logo_height": 100,
             "main_menu": "mega-menu",
             "collections_menu": "",
@@ -98,7 +98,7 @@
           "type": "desktop",
           "settings": {
             "container_max_width": "2000",
-            "logo": "shopify://shop_images/LogoRenderBanner.png",
+            "logo": "shopify://shop_images/LogoRender.png",
             "logo_transparent": "shopify://shop_images/LogoRenderBanner.png",
             "logo_height": 100,
             "main_menu": "mega-menu",
@@ -112,6 +112,7 @@
         "069e870e-aed4-4929-bf73-c0daca8be18e"
       ],
       "settings": {
+        "selected_menu": "mega-menu",
         "bg_color": "bg-body",
         "bg_opacity": 0,
         "bg_gradient": "bg-gradient",

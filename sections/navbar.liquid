@@ -89,6 +89,14 @@
         id="navbar-desktop" 
         class="navbar d-none d-desktop-block p-0"
         {{ block.shopify_attributes }}>
+
+
+        
+<div class="col-4 text-center logo-container">
+  {% render 'navbar-logo', block: block %}
+</div>
+
+
         
         <!-- Desktop Navbar Layout -->
         <div class="container d-flex flex-column align-items-center">
@@ -98,13 +106,32 @@
             <div class="col-4">
               {% render 'navbar-logo', block: block %}
             </div>
-            
-            <div class="col-4 d-flex justify-content-center">
-              <!-- Search Bar -->
-              <form action="/search" method="get" class="search-bar">
-                <input type="text" name="q" placeholder="Search..." class="form-control">
-              </form>
-            </div>
+
+         <!--Search Bar -->
+          <div class="col-4 d-flex justify-content-center search-container">
+  <form action="/search" method="get" class="search-bar">
+    <input type="text" name="q" placeholder="Search..." class="form-control">
+  </form>
+</div>
+
+
+            <!--Phone # Number -->
+            <div class="col-4 d-flex justify-content-end align-items-center phone-number">
+  <span>123-456-7890</span> <!-- Replace with your actual phone number -->
+</div>
+
+            <!-- Facebook and cart -->
+            <div class="col-4 d-flex justify-content-end align-items-center cart-and-social">
+  <a href="#cart-link" class="nav-link-icon"> <!-- Replace #cart-link with actual cart URL -->
+    {% render 'svg-icons', icon: 'cart' %}
+  </a>
+  <a href="https://facebook.com/yourpage" target="_blank" class="nav-link-icon ms-3"> <!-- Replace with your Facebook URL -->
+    {% render 'svg-icons', icon: 'facebook' %} <!-- Ensure you have a Facebook icon in your svg-icons file -->
+  </a>
+</div>
+
+
+
             
             <div class="col-4 d-flex justify-content-end">
               <!-- Account and Cart Icons -->

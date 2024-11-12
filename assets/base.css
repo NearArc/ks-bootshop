@@ -644,6 +644,45 @@ hr {
 .navbar-brand:hover img, .navbar-brand:focus img {
   opacity: 0.85;
 }
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-container img {
+  max-width: 100%;
+  height: auto;
+  max-height: 80px; /* Adjust as needed */
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-bar .form-control {
+  width: 300px; /* Adjust width as needed */
+  height: 40px; /* Adjust height as needed */
+  border: 2px solid black; /* Bold outline */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 16px; /* Adjust font size */
+  padding: 5px 10px;
+}
+.phone-number {
+  font-size: 16px; /* Adjust font size */
+  font-weight: bold;
+}
+.cart-and-social .nav-link-icon {
+  font-size: 24px;
+  color: black; /* Adjust color as needed */
+  margin-left: 10px;
+}
+
+.cart-and-social .nav-link-icon:hover {
+  color: gray; /* Hover effect */
+}
+
 
 /*
   Dropdown
