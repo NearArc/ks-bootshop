@@ -15,6 +15,21 @@
     --bs-bg-opacity: {{ section.settings.bg_opacity | append: '%' }};
     --bs-border-opacity: {{ section.settings.border_opacity | append: '%' }};
   ">
+  
+<!-- Ensure this line renders the logo image if available -->
+<div class="logo-container">
+  {% if section.settings.logo != blank %}
+    <img 
+      src="{{ section.settings.logo | img_url: '200x' }}" 
+      alt="Company Logo" 
+      style="max-height: 60px; width: auto; height: auto;"
+      width="200" height="auto"
+    >
+  {% else %}
+    <span>{{ shop.name }}</span> <!-- Fallback text if no logo image is set -->
+  {% endif %}
+</div>
+
 
   <!-- Desktop Navigation -->
   <nav id="navbar-desktop" class="navbar d-none d-desktop-block p-0">
