@@ -108,7 +108,7 @@
           <!-- Search Bar -->
           <div class="search-container" style="flex-grow: 1; display: flex; justify-content: center;">
             <form action="/search" method="get" class="search-bar" style="width: 100%; max-width: 900px;">
-              <input type="text" name="q" placeholder="Search Product Name / Type or Brand" class="form-control" style="width: 100%; border: 2px solid #000; border-radius: 0; padding: 10px; font-size: 16px;">
+              <input type="text" name="q" placeholder="Search Product Name" class="form-control" style="width: 100%; border: 2px solid #000; border-radius: 0; padding: 10px; font-size: 16px;">
             </form>
           </div>
 
@@ -119,9 +119,6 @@
                 {% render 'svg-icons', icon: 'account' %}
               </a>
             {% endif %}
-            <a href="/gift-certificate" class="nav-link-icon" style="margin-left: 15px; font-size: 24px; color: #333;">
-              {% render 'svg-icons', icon: 'gift' %}
-            </a>
             <a href="{{ routes.cart_url }}" class="nav-link-icon" style="margin-left: 15px; font-size: 24px; color: #333;">
               {% render 'svg-icons', icon: 'cart' %}
             </a>
