@@ -154,22 +154,31 @@
   /* new code */
 {
   "name": "Navbar",
-  "limit": 1,
   "settings": [
+    
      {
       "type": "image_picker",
       "id": "logo",
       "label": "Logo"
      },
   {
-  "type": "range",
-  "id": "menu_font_size",
-  "label": "Menu Font Size",
-  "default": 16,
-  "min": 10,
-  "max": 30,
-  "unit": "px"
+    "type": "range",
+      "id": "logo_width",
+      "label": "Logo Width",
+      "default": 100,
+      "min": 50,
+      "max": 100,
+      "unit": "px"
 },
+        {
+      "type": "range",
+      "id": "logo_height",
+      "label": "Logo Height",
+      "default": 60,
+      "min": 30,
+      "max": 100,
+      "unit": "px"
+    },
 {
   "type": "range",
   "id": "padding_top",
@@ -441,3 +450,4 @@
   ]
 }
 {% endschema %}
+
