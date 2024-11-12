@@ -114,8 +114,8 @@
       ],
       "settings": {
         "logo": "shopify://shop_images/LogoRenderSideWays.png",
-        "logo_width": 84,
-        "logo_height": 93,
+        "logo_width": 79,
+        "logo_height": 76,
         "padding_top": 0,
         "padding_bottom": 0,
         "selected_menu": "mega-menu",
