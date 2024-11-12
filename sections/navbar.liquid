@@ -27,17 +27,18 @@
     <div class="navbar-container d-flex justify-content-between align-items-center" style="padding: 10px 20px;">
       <!-- Logo -->
       <div class="logo-container">
-        {% if section.settings.logo != blank %}
-          <img 
-            src="{{ section.settings.logo | img_url: '200x' }}" 
-            alt="Company Logo" 
-            style="max-height: 60px; width: auto; height: auto;"
-            width="200" height="auto"
-          >
-        {% else %}
-          <span>{{ shop.name }}</span> <!-- Fallback text if no logo image is set -->
-        {% endif %}
-      </div>
+  {% if section.settings.logo != blank %}
+    <img 
+      src="{{ section.settings.logo | img_url: '200x' }}" 
+      alt="Company Logo" 
+      width="200" height="auto" <!-- Set static width and height attributes -->
+      style="width: {{ section.settings.logo_width }}px; height: {{ section.settings.logo_height }}px;"
+    >
+  {% else %}
+    <span>{{ shop.name }}</span> <!-- Fallback text if no logo image is set -->
+  {% endif %}
+</div>
+
 
       <!-- Search Bar -->
       <div class="search-container" style="flex-grow: 1; display: flex; justify-content: center;">
@@ -95,17 +96,19 @@
         <div class="col-4">
           <!-- Mobile Logo -->
           <div class="logo-container">
-            {% if section.settings.logo != blank %}
-              <img 
-                src="{{ section.settings.logo | img_url: '100x' }}" 
-                alt="Company Logo" 
-                style="max-height: 50px; width: auto; height: auto;"
-                width="100" height="auto"
-              >
-            {% else %}
-              <span>{{ shop.name }}</span>
-            {% endif %}
-          </div>
+  {% if section.settings.logo != blank %}
+    <img 
+      src="{{ section.settings.logo | img_url: '200x' }}" 
+      alt="Company Logo" 
+      width="200" height="auto" <!-- Set static width and height attributes -->
+      style="width: {{ section.settings.logo_width }}px; height: {{ section.settings.logo_height }}px;"
+    >
+  {% else %}
+    <span>{{ shop.name }}</span> <!-- Fallback text if no logo image is set -->
+  {% endif %}
+</div>
+
+
         </div>
         <div class="col-8 d-flex justify-content-end">
           <!-- Mobile Menu Icons (Cart, Account, etc.) -->
